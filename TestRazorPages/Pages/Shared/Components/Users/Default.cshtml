@@ -1,0 +1,11 @@
+@model System.Collections.Generic.List<TestRazorPages.Models.User>?
+<h3>Users</h3>
+<ul>
+    @if (Model != null)
+    {
+        @foreach (var user in Model)
+        {
+            <li>@user.Name</li>
+        }
+    }
+</ul>

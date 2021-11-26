@@ -4,7 +4,11 @@
 // View Components in Razor Pages
 // https://www.learnrazorpages.com/razor-pages/view-components
 
+using TestRazorPages.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTransient<IUserService, UserService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
