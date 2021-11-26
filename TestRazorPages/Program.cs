@@ -1,3 +1,9 @@
+// Learn Razor Pages
+// https://www.learnrazorpages.com/
+//
+// View Components in Razor Pages
+// https://www.learnrazorpages.com/razor-pages/view-components
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
