@@ -1,27 +1,35 @@
-@page
+@page "{city?}/{name?}"
 @model TestRazorPages.Pages.Panorama
-
 @{
-    Layout = null;
+    Layout = ViewData["Layout"] as string ?? null;
 }
-
+@if (!string.IsNullOrWhiteSpace(Model.PanoramaPath))
+{
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Equirectangular | Marzipano</title>
-    <meta name="description" content="Display an equirectangular image." />
+    <title>@Model.Title</title>
+    <meta name="description" content="@Model.Title" />
     <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
     <style>@@-ms-viewport { width: device-width; }</style>
-    <link rel="stylesheet" href="~/css/reset.css">
-    <link rel="stylesheet" href="~/css/pano-style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/pano-style.css">
 </head>
 <body>
 
 <div id="pano"></div>
 
-<script src="~/js/marzipano/marzipano.js" ></script>
-
-<script src="~/js/Monaco04_6000.js"></script>
-
+<script src="/js/marzipano/marzipano.js"></script>
+<script src="/js/SetupPanorama.js"></script>
+<script>
+        SetupPanorama("@Model.PanoramaPath");
+    </script>
 </body>
 </html>
+}
+else
+{
+<h1 class="display-4">Panorama</h1>
+    <p>Vous pouvez trouver de beaux panoramas.</p>    
+    <p>Display a nice <a asp-page="/Panorama" asp-route-city="Monaco" asp-route-name="Monaco04_6000">panorama of Monaco</a>.</p>
+}

@@ -4,9 +4,19 @@
     ViewData["Title"] = "Home page";
 }
 
+@{   
+    var d = new Dictionary<string, string>
+        {
+           { "city", "Monaco" },
+           { "name", "Monaco04_6000" }
+        };
+}
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Display a nice <a asp-page="/Panorama" asp-all-route-data="d">panorama of Monaco</a>.</p>
+    <p>Display a nice <a asp-page="/Panorama" asp-route-city="Monaco" asp-route-name="Monaco04_6000">panorama of Monaco</a>.</p>
 </div>
+
 
 @await Component.InvokeAsync("User", new Random().Next(1, 10))
