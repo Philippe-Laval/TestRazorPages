@@ -9,6 +9,9 @@ using TestRazorPages.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddTransient<IRazorPartialToStringRenderer, RazorPartialToStringRenderer>();
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
