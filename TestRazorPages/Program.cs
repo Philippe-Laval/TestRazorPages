@@ -4,14 +4,12 @@
 // View Components in Razor Pages
 // https://www.learnrazorpages.com/razor-pages/view-components
 
+using TestRazorPages.Extensions;
 using TestRazorPages.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<IUserService, UserService>();
-builder.Services.AddTransient<IEmailService, EmailService>();
-builder.Services.AddTransient<IRazorPartialToStringRenderer, RazorPartialToStringRenderer>();
-
+builder.Services.RegisterMyServices();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
