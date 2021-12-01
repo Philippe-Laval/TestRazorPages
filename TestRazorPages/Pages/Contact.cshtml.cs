@@ -18,7 +18,7 @@ public class Contact : PageModel
 
     [BindProperty] public ContactForm ContactForm { get; set; }
 
-    [TempData] public string PostResult { get; set; }
+    [TempData] public string? PostResult { get; set; }
 
     public IActionResult OnGet()
     {

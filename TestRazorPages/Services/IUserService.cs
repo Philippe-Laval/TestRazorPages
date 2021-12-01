@@ -4,6 +4,6 @@ namespace TestRazorPages.Services;
 
 public interface IUserService
 {
-    Task<List<User?>> GetUsersAsync();
+    Task<List<User>?> GetUsersAsync();
     Task<User?> GetUserAsync(int id);
 }
